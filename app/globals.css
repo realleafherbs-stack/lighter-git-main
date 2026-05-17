@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+
+  /* Brand yellows pulled from Figma (Desktop -FLS) */
+  --fls-yellow: #fccd23;
+  --fls-yellow-deep: #f0cf22;
+  --fls-yellow-dark: #d9a900;
+
+  /* Neutrals */
+  --fls-black: #050505;
+  --fls-gray-950: #0a0a0a;
+  --fls-gray-900: #0d0d0d;
+  --fls-gray-800: #141414;
+  --fls-gray-700: #1c1c1c;
+  --fls-gray-600: #2a2a2a;
+  --fls-gray-500: #404040;
+  --fls-light: #f5f5f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-fls-yellow: var(--fls-yellow);
+  --color-fls-yellow-deep: var(--fls-yellow-deep);
+  --color-fls-yellow-dark: var(--fls-yellow-dark);
+  --color-fls-black: var(--fls-black);
+  --color-fls-gray-950: var(--fls-gray-950);
+  --color-fls-gray-900: var(--fls-gray-900);
+  --color-fls-gray-800: var(--fls-gray-800);
+  --color-fls-gray-700: var(--fls-gray-700);
+  --color-fls-gray-600: var(--fls-gray-600);
+  --color-fls-gray-500: var(--fls-gray-500);
+  --color-fls-light: var(--fls-light);
+  --font-sans: var(--font-heebo);
+  --font-display: var(--font-heebo);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-heebo), "Heebo", "Arial Hebrew", Arial, sans-serif;
+}
+
+/* Yellow ribbon: alternating thin diagonal black slats over yellow */
+.fls-ribbon-bg {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 22px,
+      rgba(0, 0, 0, 0.16) 22px 26px
+    ),
+    var(--fls-yellow);
+}
+
+/* Top + bottom diagonal notch trim used on the yellow ribbon */
+.fls-ribbon-edge {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--fls-black) 0 28px,
+      var(--fls-yellow) 28px 40px
+    );
+}
+
+/* Faint dot grid used in dark sections (tech specs, FAQ) */
+.fls-grid-bg {
+  background-image:
+    linear-gradient(rgba(252, 205, 35, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(252, 205, 35, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Big outlined "FLS" watermark */
+.fls-watermark {
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.06);
+}
+
+/* Radial yellow glow used behind hero / B2B */
+.fls-hero-glow {
+  background: radial-gradient(
+    55% 55% at 35% 50%,
+    rgba(252, 205, 35, 0.22) 0%,
+    rgba(252, 205, 35, 0.06) 40%,
+    transparent 75%
+  );
+}
+
+/* Neutral light-grey glow — same shape as fls-hero-glow but no warm tint */
+.fls-hero-glow-grey {
+  background: radial-gradient(
+    55% 55% at 35% 50%,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.03) 40%,
+    transparent 75%
+  );
+}
+
+/* Hero section base gradient — lighter gray on the left fading to near-black on the right */
+.fls-hero-bg {
+  background:
+    radial-gradient(
+      ellipse 95% 115% at 22% 55%,
+      #3a3a3a 0%,
+      #2a2a2a 22%,
+      #1a1a1a 50%,
+      #0a0a0a 80%,
+      #050505 100%
+    );
+}
+
+
+
+
+.fls-gold-glow {
+  background: radial-gradient(
+    50% 60% at 50% 60%,
+    rgba(252, 205, 35, 0.28) 0%,
+    rgba(252, 205, 35, 0.08) 40%,
+    transparent 75%
+  );
+}
+
+/* Uniqueness section: square-back.png texture overlay on the right edge */
+.fls-uniq-pattern {
+  background-image: url("/figma/square-back.png");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  mask-image: linear-gradient(to left, black 0%, transparent 90%);
+  -webkit-mask-image: linear-gradient(to left, black 0%, transparent 90%);
+}
+
+/* About section: factory photo backdrop */
+.fls-about-bg {
+  background-image: url("/figma/factory.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(1);
+}
+
+/* Half-tone / checker overlay used over the about background */
+.fls-about-halftone {
+  background-image:
+    radial-gradient(rgba(0, 0, 0, 0.55) 1.2px, transparent 1.6px),
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.4px);
+  background-size: 6px 6px, 6px 6px;
+  background-position: 0 0, 3px 3px;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+}
+
+/* Industrial radial used in B2B section */
+.fls-factory-bg {
+  background:
+    radial-gradient(
+      120% 120% at 50% 30%,
+      rgba(252, 205, 35, 0.08) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 50%, #050505 100%);
+}
+
+/* Flame keyframe used by lighter SVG */
+@keyframes fls-flicker {
+  0%, 100% { transform: scaleY(1) translateY(0); opacity: 1; }
+  20% { transform: scaleY(1.05) translateY(-1px); opacity: 0.94; }
+  50% { transform: scaleY(0.95) translateY(1px); opacity: 0.9; }
+  80% { transform: scaleY(1.07) translateY(-1px); opacity: 0.97; }
+}
+
+.fls-flame {
+  animation: fls-flicker 1.6s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+/* Convenience: section wrapper that locks max width to design (1440) but stretches */
+.fls-section {
+  position: relative;
+  width: 100%;
+  margin-inline: auto;
+}
