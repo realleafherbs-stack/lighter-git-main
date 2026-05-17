@@ -3,7 +3,7 @@ import { PillButton } from "./Button";
 
 export function CtaBanner() {
   return (
-    <section className="relative bg-fls-yellow overflow-hidden py-4 md:py-24">
+    <section className="relative bg-fls-yellow overflow-visible py-4 md:py-8">
       <Image
         aria-hidden
         src="/figma/yellow-bg-square.png"
@@ -69,18 +69,19 @@ export function CtaBanner() {
         </div>
 
         {/* ── DESKTOP ONLY ── */}
-        <div className="hidden md:grid grid-cols-12 gap-10 items-center">
-          <div className="col-span-6 text-right">
-            <h2 className="text-black leading-[1.05] text-[clamp(34px,7.6vw,56px)] text-right">
+        <div className="hidden md:flex items-center justify-between overflow-visible">
+          {/* Text — right side in RTL (first in DOM) */}
+          <div className="text-right shrink-0">
+            <h2 className="text-black leading-[1.05] text-[clamp(44px,5vw,64px)] text-right mb-8">
               <span className="block font-normal">המצית שהלקוחות שלך</span>
               <span className="block font-black">ישמחו לחזור לקנות שוב!</span>
             </h2>
 
-            <h3 className="mt-12 text-black font-black text-[clamp(24px,2.8vw,34px)] text-right">
+            <h3 className="mt-12 text-black font-black text-[clamp(28px,3vw,42px)] text-right">
               רוצה שסוכן יחזור אליך?
             </h3>
 
-            <div className="mt-6 flex justify-end">
+            <div className="mt-4 flex justify-start">
               <PillButton
                 variant="filled"
                 href="#dual-cta"
@@ -90,23 +91,28 @@ export function CtaBanner() {
               </PillButton>
             </div>
           </div>
-          <div className="col-span-6 flex flex-col sm:flex-row justify-center md:justify-start items-center gap-6">
-            <Image
-              src="/figma/shelf.png"
-              alt=""
-              width={520}
-              height={760}
-              className="h-auto w-[clamp(200px,42vw,320px)]"
-              priority
-            />
-            <Image
-              src="/figma/shelf.png"
-              alt=""
-              width={520}
-              height={760}
-              className="h-auto w-[clamp(200px,42vw,320px)]"
-              priority
-            />
+          {/* Images — left side in RTL (second in DOM) */}
+          <div className="flex items-end -mb-10" dir="ltr" style={{ gap: 0 }}>
+            <div className="shrink-0" style={{ width: 'clamp(300px,32vw,480px)' }}>
+              <Image
+                src="/figma/shelf.png"
+                alt=""
+                width={520}
+                height={760}
+                className="w-full h-auto block"
+                priority
+              />
+            </div>
+            <div className="shrink-0 -ml-24" style={{ width: 'clamp(300px,32vw,480px)' }}>
+              <Image
+                src="/figma/shelf.png"
+                alt=""
+                width={520}
+                height={760}
+                className="w-full h-auto block"
+                priority
+              />
+            </div>
           </div>
         </div>
 
