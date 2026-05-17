@@ -20,7 +20,7 @@ const FAQS = [
 export function Faq() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <section className="relative bg-fls-black py-24 overflow-hidden">
+    <section className="relative bg-fls-black py-24 md:py-36 overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -44,14 +44,14 @@ export function Faq() {
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 md:gap-6 py-5 md:py-6 text-right"
+                  className="w-full flex items-center justify-between gap-4 md:gap-6 py-6 md:py-10 text-right"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-white text-[clamp(22px,1.4vw,22px)] font-semibold flex-1">
+                  <span className="text-white text-[clamp(22px,2vw,30px)] font-semibold flex-1">
                     {f.q}
                   </span>
                   <span
-                    className="shrink-0 text-fls-yellow text-3xl font-black leading-none"
+                    className="shrink-0 text-fls-yellow text-[clamp(28px,3vw,44px)] font-black leading-none"
                     aria-hidden
                   >
                     {isOpen ? "–" : "+"}
@@ -64,7 +64,7 @@ export function Faq() {
                 >
                   
                   <div className="overflow-hidden">
-                    <p className="text-white/75 leading-relaxed text-right text-[clamp(18px,1vw,16px)]">
+                    <p className="text-white/75 leading-relaxed text-right text-[clamp(18px,1.6vw,24px)]">
                       {f.a}
                     </p>
                   </div>

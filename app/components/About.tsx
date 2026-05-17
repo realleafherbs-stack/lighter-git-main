@@ -16,20 +16,20 @@ export function About() {
           <h2 className="text-fls-yellow font-black leading-[1.05] text-[clamp(40px,5vw,64px)] mb-6">
             אודות FLS
           </h2>
-          <p className="text-white text-[clamp(24px,1.8vw,22px)] leading-relaxed">
+          <p className="text-white text-[clamp(20px,2.2vw,30px)] leading-relaxed">
             מצתי FLS מיוצרים בטכנולוגיה אירופאית
             <br />
             מתקדמת תחת תקני איכות בינלאומיים
           </p>
         </div>
 
-        <div className="mt-8 md:mt-28 flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-10 text-center">
+        <div className="mt-8 md:mt-16 flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-10 text-center">
           {PILLARS.map((title) => (
             <p
               key={title}
-              className="text-fls-yellow font-semibold text-[clamp(28px,2.2vw,30px)] leading-tight"
+              className="text-fls-yellow font-semibold text-[clamp(28px,3.2vw,48px)] leading-tight"
             >
-              <span className="block text-fls-yellow font-bold text-[clamp(36px,3vw,48px)]">+</span>
+              <span className="block text-fls-yellow font-bold text-[clamp(40px,4vw,60px)]">+</span>
               {title}
             </p>
           ))}

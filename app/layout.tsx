@@ -31,7 +31,7 @@ export default function RootLayout({
       dir="rtl"
       className={`${fbTamlil.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white">
+      <body className="min-h-full flex flex-col bg-black text-white overflow-x-hidden">
         {children}
       </body>
     </html>

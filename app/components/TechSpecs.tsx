@@ -14,7 +14,7 @@ export function TechSpecs() {
   return (
     <section
       dir="rtl"
-      className="relative overflow-hidden bg-fls-black pt-20 pb-6 md:py-28"
+      className="relative overflow-hidden bg-fls-black pt-20 pb-6 md:py-56"
     >
       <Image
         aria-hidden
@@ -37,10 +37,10 @@ export function TechSpecs() {
 
           {/* Specs — top on mobile, right 7 cols on desktop */}
           <div className="col-span-1 md:col-span-7 text-right order-1">
-            <h2 className="mb-1 text-[clamp(32px,3.6vw,44px)] font-black leading-[1.05] text-white">
+            <h2 className="mb-1 text-[clamp(40px,4.8vw,64px)] font-black leading-[1.05] text-white">
               טכנולוגיה חכמה<br className="md:hidden" /> ללהבה אחידה
             </h2>
-            <p className="mb-8 text-[clamp(18px,2.08vw,30px)] text-white/70 md:mb-10">
+            <p className="mb-8 text-[clamp(22px,2.6vw,36px)] text-white/70 md:mb-10">
               מפרט טכני
             </p>
 
@@ -49,14 +49,14 @@ export function TechSpecs() {
                 <li
                   key={s.label}
                   data-spec={s.label}
-                  className="grid cursor-pointer grid-cols-2 items-center gap-4 px-2 py-3 transition-colors hover:bg-fls-yellow/10"
+                  className="grid cursor-pointer grid-cols-2 items-center gap-4 px-2 py-4 transition-colors hover:bg-fls-yellow/10"
                 >
-                  <span className="text-right text-[clamp(15px,1.6vw,22px)] font-bold text-white">
+                  <span className="text-right text-[clamp(18px,2vw,28px)] font-bold text-white">
                     {s.label}
                   </span>
                   <span
                     dir="ltr"
-                    className="text-[clamp(15px,1.6vw,22px)] font-medium text-white"
+                    className="text-[clamp(18px,2vw,28px)] font-medium text-white"
                   >
                     {s.value}
                   </span>

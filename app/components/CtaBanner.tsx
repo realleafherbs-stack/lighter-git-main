@@ -103,7 +103,7 @@ export function CtaBanner() {
                 priority
               />
             </div>
-            <div className="shrink-0 -ml-24" style={{ width: 'clamp(300px,32vw,480px)' }}>
+            <div className="shrink-0 -ml-64" style={{ width: 'clamp(300px,32vw,480px)' }}>
               <Image
                 src="/figma/shelf.png"
                 alt=""

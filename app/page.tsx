@@ -15,9 +15,9 @@ import { FloatingButtons } from "./components/FloatingButtons";
 
 export default function Home() {
   return (
-    <div className="relative flex flex-1 flex-col bg-fls-black">
+    <div className="relative flex flex-1 flex-col bg-fls-black overflow-x-hidden">
       <Header />
-      <main className="flex flex-1 flex-col">
+      <main className="flex flex-1 flex-col overflow-x-hidden">
         <Hero />
         <YellowRibbon />
         <Uniqueness />

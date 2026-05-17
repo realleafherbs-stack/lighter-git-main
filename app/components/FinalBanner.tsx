@@ -16,13 +16,23 @@ export function FinalBanner() {
            </section>
 
            {/* ── DESKTOP ── */}
-           <section className="hidden md:block relative bg-white overflow-hidden py-20">
-              <Image aria-hidden src="/figma/mfc.png" alt="" fill sizes="100vw" className="object-cover object-bottom pointer-events-none z-0" priority />
-              <div className="relative mx-auto max-w-[1440px] px-12 flex flex-col items-center text-center gap-8">
-                <Image src="/figma/fls.png" alt="FLS" width={520} height={220} className="h-auto w-[clamp(180px,18vw,280px)]" priority />
-                <p className="text-fls-yellow text-[clamp(20px,1.8vw,26px)] font-semibold">המצית שבא לעבוד!</p>
-                <div className="w-full min-h-[420px]" aria-hidden />
-                <PillButton variant="filled" href="#dual-cta">הזמינו עכשיו</PillButton>
+           <section className="hidden md:block relative bg-[#e8e8e8] overflow-hidden">
+              {/* Background image covering full width */}
+              <Image 
+                src="/figma/four-shelf.png" 
+                alt="" 
+                fill
+                sizes="100vw"
+                className="object-cover pointer-events-none z-0" style={{ objectPosition: 'center 70%' }}
+                priority 
+                aria-hidden
+              />
+              {/* Content overlay */}
+              <div className="relative z-10 pt-14 pb-10 flex flex-col items-center text-center">
+                <Image src="/figma/fls.png" alt="FLS" width={520} height={220} className="h-auto w-[clamp(220px,22vw,340px)]" priority />
+                <p className="text-fls-yellow text-[clamp(30px,3.4vw,50px)] font-black mt-3 mb-8">המצית שבא לעבוד!</p>
+                <div className="min-h-[700px]" aria-hidden />
+                <PillButton variant="filled" href="#dual-cta" className="px-16! py-6! text-[34px]!">הזמינו עכשיו</PillButton>
               </div>
             </section>
     </div>

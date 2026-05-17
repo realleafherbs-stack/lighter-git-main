@@ -1,6 +1,6 @@
 export function FloatingButtons() {
   return (
-    <div className="fixed bottom-6 left-6 z-40 flex flex-col gap-3 print:hidden">
+    <div className="fixed bottom-6 right-6 md:left-6 md:right-auto z-40 flex flex-col gap-3 print:hidden">
       <a
         href="https://wa.me/972587991094"
         aria-label="WhatsApp"
