@@ -1,19 +1,18 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 
-type Side = "left" | "right";
-type Feature = { text: ReactNode; highlight?: boolean; top: string };
+type Feature = { text: ReactNode; highlight?: boolean; top: string; lineWidth?: string };
 type MobileFeature = { text: ReactNode; highlight?: boolean; top: string; lineWidth?: string };
 
 const RIGHT_FEATURES: Feature[] = [
-  { text: "עד 1500 הדלקות", highlight: true, top: "22%" },
-  { text: "אבן איכותית", top: "38%" },
-  { text: "אחיזה נוחה", top: "60%" },
+  { text: "עד 1500 הדלקות", highlight: true, top: "20%", lineWidth: "290px" },
+  { text: "אבן איכותית", top: "28%", lineWidth: "240px" },
+  { text: "אחיזה נוחה", top: "58%", lineWidth: "200px" },
 ];
 
 const LEFT_FEATURES: Feature[] = [
-  { text: "להבה יציבה בכל הדלקה", top: "12%" },
-  { text: "עמידה בחום", top: "30%" },
+  { text: "להבה יציבה בכל הדלקה", top: "17%", lineWidth: "260px" },
+  { text: "עמידה בחום", top: "35%", lineWidth: "200px" },
   {
     text: (
       <>
@@ -22,10 +21,10 @@ const LEFT_FEATURES: Feature[] = [
         באישור מכון התקנים
       </>
     ),
-    top: "48%",
+    top: "44%",
+    lineWidth: "250px",
   },
-
-  { text: "יושב מושלם בכיס", highlight: true, top: "68%" },
+  { text: "יושב מושלם בכיס", highlight: true, top: "70%", lineWidth: "300px" },
 ];
 
 const MOBILE_FEATURES: MobileFeature[] = [
@@ -48,32 +47,11 @@ const MOBILE_FEATURES: MobileFeature[] = [
   { text: "יושב מושלם בכיס", highlight: true, top: "81%", lineWidth: "120%" },
 ];
 
-function FeatureLabel({
-  text,
-  highlight,
-  side,
-}: Pick<Feature, "text" | "highlight"> & { side: Side }) {
-  // Text sits on the far edge, line extends toward the center image
-  const align = side === "left" ? "text-left" : "text-right";
-  return (
-    <div className={align}>
-      <p
-        className={`text-[clamp(22px,2vw,30px)] font-bold leading-tight pb-2 whitespace-nowrap ${
-          highlight ? "text-fls-yellow" : "text-white"
-        }`}
-      >
-        {text}
-      </p>
-      <div className="h-px bg-fls-yellow/70 w-full" />
-    </div>
-  );
-}
-
 export function Uniqueness() {
   return (
     <section
       id="uniqueness"
-      className="relative bg-fls-black overflow-hidden pt-24 pb-0 lg:pb-24"
+      className="relative bg-fls-black overflow-hidden pt-12 pb-0 lg:pt-8 lg:pb-12"
     >
       {/* Mobile background */}
       <div
@@ -83,13 +61,13 @@ export function Uniqueness() {
       {/* Desktop background */}
       <div
         aria-hidden
-        className="hidden lg:block absolute inset-0 bg-[url('/figma/fbg.png')] bg-cover bg-center"
+        className="hidden lg:block absolute inset-0 bg-[url('/figma/fbg.png')] bg-cover bg-bottom"
       />
       <div className="absolute inset-x-0 top-0 h-[3px] bg-fls-yellow/80" aria-hidden />
       <div className="hidden lg:block absolute inset-0 opacity-25 fls-uniq-pattern" aria-hidden />
 
-      <div className="relative mx-auto max-w-[1440px] px-12 lg:min-h-[820px]">
-        <h2 className="absolute top-8 right-12 text-fls-yellow font-black leading-[1.05] text-[clamp(40px,4.4vw,64px)] text-right z-10 hidden lg:block">
+      <div className="relative mx-auto max-w-[1440px] px-12 lg:min-h-[650px]">
+        <h2 className="absolute top-8 right-12 text-white font-black leading-[1.05] text-[clamp(40px,4.4vw,64px)] text-right z-10 hidden lg:block">
           הייחודיות
           <br />
           שלנו
@@ -151,48 +129,54 @@ export function Uniqueness() {
             </div>
           </div>
 
-          {/* Desktop dotted columns */}
-          <div className="hidden w-full max-w-[200px] lg:flex shrink-0 relative">
-            <div className="relative w-full">
-              {RIGHT_FEATURES.map((f, i) => (
-                <div
-                  key={`right-${i}`}
-                  className="absolute inset-x-0"
-                  style={{ top: f.top }}
-                >
-                  <FeatureLabel text={f.text} highlight={f.highlight} side="right" />
-                </div>
-              ))}
+          {/* ── DESKTOP layout ── */}
+          <div className="hidden lg:block relative w-full max-w-[900px] mx-auto min-h-[600px]">
+            {/* Image centered */}
+            <div className="flex justify-center">
+              <Image
+                src="/figma/two-lighters.png"
+                alt="FLS Lighters"
+                width={720}
+                height={1040}
+                className="h-auto w-[clamp(360px,42vw,600px)] object-contain"
+                priority
+              />
             </div>
+
+            {/* Left labels — positioned over left side of image */}
+            {LEFT_FEATURES.map((f, i) => (
+              <div
+                key={`dleft-${i}`}
+                className="absolute flex flex-col items-end"
+                style={{ top: f.top, left: '5%' }}
+              >
+                <p className={`text-end text-[clamp(22px,2vw,30px)] font-bold leading-tight whitespace-nowrap ${
+                  f.highlight ? "text-fls-yellow" : "text-white"
+                }`}>
+                  {f.text}
+                </p>
+                <div className="h-px bg-fls-yellow/70 mt-1" style={{ width: f.lineWidth ?? "100px" }} />
+              </div>
+            ))}
+
+            {/* Right labels — positioned over right side of image */}
+            {RIGHT_FEATURES.map((f, i) => (
+              <div
+                key={`dright-${i}`}
+                className="absolute flex flex-col items-start"
+                style={{ top: f.top, right: '5%' }}
+              >
+                <p className={`text-left text-[clamp(22px,2vw,30px)] font-bold leading-tight whitespace-nowrap ${
+                  f.highlight ? "text-fls-yellow" : "text-white"
+                }`}>
+                  {f.text}
+                </p>
+                <div className="h-px bg-fls-yellow/70 mt-1" style={{ width: f.lineWidth ?? "100px" }} />
+              </div>
+            ))}
           </div>
 
-          <Image
-            src="/figma/two-lighters.png"
-            alt="FLS Lighter"
-            width={720}
-            height={1040}
-            className="hidden lg:block h-auto w-[clamp(320px,70vw,520px)]"
-            priority
-          />
-
-          <div className="hidden w-full max-w-[200px] lg:flex shrink-0 relative">
-            <div className="relative w-full">
-              {LEFT_FEATURES.map((f, i) => (
-                <div
-                  key={`left-${i}`}
-                  className="absolute inset-x-0"
-                  style={{ top: f.top }}
-                >
-                  <FeatureLabel text={f.text} highlight={f.highlight} side="left" />
-                </div>
-              ))}
-            </div>
           </div>
-
-        </div>
-
-        {/* Desktop bottom wordmark */}
-  
       </div>
     </section>
   );
