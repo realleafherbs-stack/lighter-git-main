@@ -29,10 +29,10 @@ const LEFT_FEATURES: Feature[] = [
 ];
 
 const MOBILE_FEATURES: MobileFeature[] = [
-  { text: "להבה יציבה בכל הדלקה", top: "2%", lineWidth: "235%" },
-  { text: "עד 1500 הדלקות", highlight: true, top: "15%", lineWidth: "150%" },
-  { text: "אבן איכותית", top: "26%", lineWidth: "120%" },
-  { text: "עמידה בחום", top: "40%", lineWidth: "105%" },
+  { text: "להבה יציבה בכל הדלקה", top: "2%", lineWidth: "230%" },
+  { text: "עד 1500 הדלקות", highlight: true, top: "15%", lineWidth: "130%" },
+  { text: "אבן איכותית", top: "26%", lineWidth: "100%" },
+  { text: "עמידה בחום", top: "40%", lineWidth: "85%" },
   {
     text: (
       <>
@@ -44,8 +44,8 @@ const MOBILE_FEATURES: MobileFeature[] = [
     top: "53%",
     lineWidth: "105%",
   },
-  { text: "אחיזה נוחה", top: "70%", lineWidth: "105%" },
-  { text: "יושב מושלם בכיס", highlight: true, top: "81%", lineWidth: "130%" },
+  { text: "אחיזה נוחה", top: "70%", lineWidth: "85%" },
+  { text: "יושב מושלם בכיס", highlight: true, top: "81%", lineWidth: "110%" },
 ];
 
 function FeatureLabel({
@@ -75,12 +75,17 @@ export function Uniqueness() {
     <section
       id="uniqueness"
       className="relative bg-fls-black overflow-hidden pt-24 pb-0 lg:pb-24"
-      style={{
-        backgroundImage: "url(/figma/square-back.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
     >
+      {/* Mobile background */}
+      <div
+        aria-hidden
+        className="lg:hidden absolute inset-0 bg-[url('/figma/fbg.png')] bg-cover bg-right"
+      />
+      {/* Desktop background */}
+      <div
+        aria-hidden
+        className="hidden lg:block absolute inset-0 bg-[url('/figma/fbg.png')] bg-cover bg-center"
+      />
       <div className="absolute inset-x-0 top-0 h-[3px] bg-fls-yellow/80" aria-hidden />
       <div className="hidden lg:block absolute inset-0 opacity-25 fls-uniq-pattern" aria-hidden />
 
