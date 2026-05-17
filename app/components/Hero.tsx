@@ -13,11 +13,6 @@ export function Hero() {
         aria-hidden
         className="lg:hidden absolute inset-0 bg-[url('/figma/bat.png')] bg-no-repeat bg-size-[240%] bg-position-[center_top] opacity-60 brightness-110"
       />
-      {/* Desktop background */}
-      <div
-        aria-hidden
-        className="hidden lg:block absolute inset-0 bg-[url('/figma/fbg.png')] bg-cover bg-center"
-      />
       {/* Light-grey glow */}
       <div
         aria-hidden
