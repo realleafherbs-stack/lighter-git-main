@@ -58,7 +58,7 @@ function FeatureLabel({
   return (
     <div className={align}>
       <p
-        className={`text-[clamp(18px,1.6vw,22px)] font-bold leading-tight pb-2 ${
+        className={`text-[clamp(22px,2vw,30px)] font-bold leading-tight pb-2 whitespace-nowrap ${
           highlight ? "text-fls-yellow" : "text-white"
         }`}
       >
@@ -152,7 +152,7 @@ export function Uniqueness() {
           </div>
 
           {/* Desktop dotted columns */}
-          <div className="hidden w-full max-w-[120px] lg:flex shrink-0 relative">
+          <div className="hidden w-full max-w-[200px] lg:flex shrink-0 relative">
             <div className="relative w-full">
               {RIGHT_FEATURES.map((f, i) => (
                 <div
@@ -175,7 +175,7 @@ export function Uniqueness() {
             priority
           />
 
-          <div className="hidden w-full max-w-[120px] lg:flex shrink-0 relative">
+          <div className="hidden w-full max-w-[200px] lg:flex shrink-0 relative">
             <div className="relative w-full">
               {LEFT_FEATURES.map((f, i) => (
                 <div
@@ -192,15 +192,7 @@ export function Uniqueness() {
         </div>
 
         {/* Desktop bottom wordmark */}
-        <div className="hidden lg:flex absolute left-6 right-6 mx-auto bottom-6 text-white justify-start">
-          <Image
-            src="/figma/fls-lighter-wordmark.svg"
-            alt="FLS Lighter"
-            width={250}
-            height={40}
-            className="h-auto w-[clamp(180px,40vw,250px)]"
-          />
-        </div>
+  
       </div>
     </section>
   );
