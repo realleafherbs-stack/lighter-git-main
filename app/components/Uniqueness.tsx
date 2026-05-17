@@ -29,10 +29,10 @@ const LEFT_FEATURES: Feature[] = [
 ];
 
 const MOBILE_FEATURES: MobileFeature[] = [
-  { text: "להבה יציבה בכל הדלקה", top: "2%", lineWidth: "230%" },
-  { text: "עד 1500 הדלקות", highlight: true, top: "15%", lineWidth: "130%" },
-  { text: "אבן איכותית", top: "26%", lineWidth: "100%" },
-  { text: "עמידה בחום", top: "40%", lineWidth: "85%" },
+  { text: "להבה יציבה בכל הדלקה", top: "2%", lineWidth: "210%" },
+  { text: "עד 1500 הדלקות", highlight: true, top: "15%", lineWidth: "140%" },
+  { text: "אבן איכותית", top: "26%", lineWidth: "110%" },
+  { text: "עמידה בחום", top: "40%", lineWidth: "95%" },
   {
     text: (
       <>
@@ -42,10 +42,10 @@ const MOBILE_FEATURES: MobileFeature[] = [
       </>
     ),
     top: "53%",
-    lineWidth: "105%",
+    lineWidth: "95%",
   },
-  { text: "אחיזה נוחה", top: "70%", lineWidth: "85%" },
-  { text: "יושב מושלם בכיס", highlight: true, top: "81%", lineWidth: "110%" },
+  { text: "אחיזה נוחה", top: "70%", lineWidth: "95%" },
+  { text: "יושב מושלם בכיס", highlight: true, top: "81%", lineWidth: "120%" },
 ];
 
 function FeatureLabel({
@@ -53,13 +53,12 @@ function FeatureLabel({
   highlight,
   side,
 }: Pick<Feature, "text" | "highlight"> & { side: Side }) {
-  // Text should sit on the side of the column closest to the image,
-  // so the underline visually points away from the image.
-  const align = side === "left" ? "text-right" : "text-left";
+  // Text sits on the far edge, line extends toward the center image
+  const align = side === "left" ? "text-left" : "text-right";
   return (
     <div className={align}>
       <p
-        className={`text-[clamp(16px,1.4vw,20px)] font-bold leading-tight pb-2 ${
+        className={`text-[clamp(18px,1.6vw,22px)] font-bold leading-tight pb-2 ${
           highlight ? "text-fls-yellow" : "text-white"
         }`}
       >
@@ -153,7 +152,7 @@ export function Uniqueness() {
           </div>
 
           {/* Desktop dotted columns */}
-          <div className="hidden w-full max-w-[220px] lg:flex shrink-0 relative">
+          <div className="hidden w-full max-w-[120px] lg:flex shrink-0 relative">
             <div className="relative w-full">
               {RIGHT_FEATURES.map((f, i) => (
                 <div
@@ -176,7 +175,7 @@ export function Uniqueness() {
             priority
           />
 
-          <div className="hidden w-full max-w-[220px] lg:flex shrink-0 relative">
+          <div className="hidden w-full max-w-[120px] lg:flex shrink-0 relative">
             <div className="relative w-full">
               {LEFT_FEATURES.map((f, i) => (
                 <div
