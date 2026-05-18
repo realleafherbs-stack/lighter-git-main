@@ -78,7 +78,7 @@ export function Uniqueness() {
           <div className="lg:hidden w-full pb-0">
 
             {/* Heading above, right-aligned */}
-            <div className="text-right pr-[22px] -mr-10 mb-4 -mt-22">
+            <div className="text-right pr-[22px] -mr-10 mb-4 mt-6">
               <p className="font-black text-white text-[clamp(32px,8.2vw,40px)] leading-tight">הייחודיות</p>
               <p className="font-black text-white text-[clamp(32px,8.2vw,40px)] leading-tight">שלנו</p>
             </div>

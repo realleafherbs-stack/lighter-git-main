@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Lighter } from "./Lighter";
 import { PillButton } from "./Button";
+import heroImg from "../../public/figma/heroimg.png";
 
 export function Hero() {
   return (
@@ -46,13 +46,15 @@ export function Hero() {
         <h1 className="text-[#fccd23] font-black leading-[1.05] text-[clamp(38px,12vw,56px)] text-right w-full">
           המצית שבא לעבוד!
         </h1>
-        {/* Lighter absolute-left, text+buttons flow on the right */}
-        <div className="relative w-full min-h-[320px]">
-          <div className="absolute top-10 -left-16 w-[65%]">
-            <Lighter
-              color="yellow"
-              size={520}
-              withFlame
+        {/* Hero image absolute-left, text+buttons flow on the right */}
+        <div className="relative w-full min-h-[360px]">
+          <div className="absolute top-12 -left-20 w-[78%]">
+            <Image
+              src={heroImg}
+              alt="FLS Lighter"
+              width={heroImg.width}
+              height={heroImg.height}
+              priority
               className="w-full h-auto rotate-12 origin-bottom"
             />
           </div>
@@ -100,10 +102,12 @@ export function Hero() {
         </div>
         <div className="col-span-7 flex flex-col items-end justify-center relative">
           <div className="absolute inset-0 fls-hero-glow-grey opacity-80" aria-hidden />
-          <div className="relative -ml-32 w-full max-w-[480px]">
-            <Lighter
-              color="yellow"
-              withFlame
+          <div className="relative -ml-12 w-full max-w-[560px]">
+            <Image
+              src={heroImg}
+              alt="FLS Lighter"
+              width={heroImg.width}
+              height={heroImg.height}
               className="w-full h-auto"
             />
           </div>

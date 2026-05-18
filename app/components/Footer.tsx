@@ -27,10 +27,10 @@ const COLS: { title: string; items: { label: string; href: string }[] }[] = [
 ];
 
 const LEGAL = [
-  { label: "מדיניות פרטיות", href: "#" },
-  { label: "תנאי שירות", href: "#" },
-  { label: "הצהרת נגישות", href: "#" },
-  { label: "תקנון האתר", href: "#" },
+  { label: "מדיניות פרטיות", href: "/privacy-policy" },
+  { label: "תנאי שירות", href: "/terms" },
+  { label: "הצהרת נגישות", href: "/accessibility" },
+  { label: "תקנון האתר", href: "/shipping" },
 ];
 
 export function Footer() {
