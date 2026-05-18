@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
   { label: "דף הבית", href: "/" },
@@ -24,9 +24,16 @@ const MOBILE_LEGAL_ROWS = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="absolute top-0 inset-x-0 z-30 h-[122px]">
+    <header className={`fixed top-0 inset-x-0 z-30 h-[122px] transition-colors duration-300 ${scrolled ? "bg-fls-black/95 backdrop-blur-md shadow-md" : "bg-transparent"}`}>
       <div className="mx-auto max-w-[1440px] h-full px-6 md:px-12 flex items-center justify-between gap-4">
         <button
           type="button"
@@ -97,7 +104,7 @@ export function Header() {
               </button>
             </div>
 
-            <nav aria-label="ניווט נייד" className="flex-1">
+            <nav aria-label="ניווט נייד">
               <ul className="flex flex-col gap-5 text-right text-white text-2xl font-bold tracking-tight">
                 {NAV_ITEMS.map((item) => (
                   <li key={item.href}>
@@ -122,7 +129,7 @@ export function Header() {
               </ul>
             </nav>
 
-            <div className="mt-20 flex flex-col gap-6 text-right text-white text-sm">
+            <div className="mt-32 flex flex-col gap-6 text-right text-white text-sm">
               <div className="grid grid-cols-1 gap-3 text-base font-bold tracking-wide text-center">
                 {MOBILE_LEGAL_ROWS.map((row, idx) => (
                   <div key={idx} className="flex flex-row-reverse items-center justify-center gap-4">
