@@ -1,23 +1,24 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const NAV_ITEMS = [
-  { label: "דף הבית", href: "#hero" },
-  { label: "היחודיות שלנו", href: "#uniqueness" },
-  { label: "מוצרים", href: "#products" },
-  { label: "אודות", href: "#about" },
+  { label: "דף הבית", href: "/" },
+  { label: "היחודיות שלנו", href: "/#uniqueness" },
+  { label: "מוצרים", href: "/#products" },
+  { label: "אודות", href: "/#about" },
 ];
 
 const MOBILE_LEGAL_ROWS = [
   [
-    { label: "מדיניות פרטיות", href: "#" },
-    { label: "מדיניות משלוחים", href: "#" },
+    { label: "מדיניות פרטיות", href: "/privacy-policy" },
+    { label: "מדיניות משלוחים", href: "/shipping" },
   ],
   [
-    { label: "תנאי שימוש", href: "#" },
-    { label: "הצהרת נגישות", href: "#" },
+    { label: "תנאי שימוש", href: "/terms" },
+    { label: "הצהרת נגישות", href: "/accessibility" },
   ],
 ];
 
@@ -39,8 +40,8 @@ export function Header() {
           <span className="block h-[2px] w-6 bg-current" />
         </button>
 
-        <a
-          href="#hero"
+        <Link
+          href="/"
           className="order-1 md:order-0 flex items-center ml-auto md:ml-0"
           aria-label="FLS"
         >
@@ -52,7 +53,7 @@ export function Header() {
             priority
             className="h-9 w-auto"
           />
-        </a>
+        </Link>
 
         <nav
           aria-label="ראשי"
@@ -73,12 +74,12 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3 order-3">
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex items-center justify-center bg-fls-yellow-deep rounded-full px-6 h-[42px] text-black font-extrabold text-[20px] leading-none whitespace-nowrap hover:bg-fls-yellow transition-colors"
           >
             צור קשר
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -100,38 +101,38 @@ export function Header() {
               <ul className="flex flex-col gap-5 text-right text-white text-2xl font-bold tracking-tight">
                 {NAV_ITEMS.map((item) => (
                   <li key={item.href}>
-                    <a
+                    <Link
                       href={item.href}
                       className="hover:text-[#fccd23] transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
                 <li>
-                  <a
-                    href="#contact"
+                  <Link
+                    href="/contact"
                     className="hover:text-[#fccd23] transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     צור קשר
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
 
             <div className="mt-20 flex flex-col gap-6 text-right text-white text-sm">
-              <div className="grid grid-cols-1 gap-3 text-sm font-bold tracking-wide text-center">
+              <div className="grid grid-cols-1 gap-3 text-base font-bold tracking-wide text-center">
                 {MOBILE_LEGAL_ROWS.map((row, idx) => (
                   <div key={idx} className="flex flex-row-reverse items-center justify-center gap-4">
-                    <a href={row[0].href} className="hover:text-[#fccd23]">
+                    <Link href={row[0].href} className="hover:text-[#fccd23]" onClick={() => setMobileOpen(false)}>
                       {row[0].label}
-                    </a>
+                    </Link>
                     <span className="text-white/30 px-1">|</span>
-                    <a href={row[1].href} className="hover:text-[#fccd23]">
+                    <Link href={row[1].href} className="hover:text-[#fccd23]" onClick={() => setMobileOpen(false)}>
                       {row[1].label}
-                    </a>
+                    </Link>
                   </div>
                 ))}
               </div>
