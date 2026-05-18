@@ -32,8 +32,14 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
-    <header className={`fixed top-0 inset-x-0 z-30 h-[122px] transition-colors duration-300 ${scrolled ? "bg-fls-black/95 backdrop-blur-md shadow-md" : "bg-transparent"}`}>
+    <>
+    <header className={`fixed top-0 inset-x-0 z-30 h-[122px] transition-colors duration-300 ${scrolled ? "bg-fls-black/95 shadow-md" : "bg-transparent"}`}>
       <div className="mx-auto max-w-[1440px] h-full px-6 md:px-12 flex items-center justify-between gap-4">
         <button
           type="button"
@@ -90,8 +96,10 @@ export function Header() {
         </div>
       </div>
 
-      {mobileOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-fls-black/98 backdrop-blur-sm">
+    </header>
+
+    {mobileOpen && (
+      <div className="md:hidden fixed inset-0 z-50 bg-fls-black/98">
           <div className="flex h-full flex-col px-6 py-6 overflow-y-auto pb-8" dir="rtl">
             <div className="flex items-center justify-end mb-8">
               <button
@@ -178,8 +186,8 @@ export function Header() {
 
             </div>
           </div>
-        </div>
-      )}
-    </header>
+      </div>
+    )}
+    </>
   );
 }
