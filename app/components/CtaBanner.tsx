@@ -29,19 +29,9 @@ export function CtaBanner() {
           {/* Shelves + h3/button */}
           <div className="relative" style={{ paddingBottom: "110%" }}>
             {/* Shelf 2 — behind, offset right+down */}
-            <div className="absolute left-[16] top-[10%] w-[85%] z-10">
-              <Image
-                src="/figma/shelf.png"
-                alt=""
-                width={520}
-                height={760}
-                className="w-full h-auto"
-                sizes="60vw"
-                priority
-              />
-            </div>
+           
             {/* Shelf 1 — front-left */}
-            <div className="absolute left-[-26%] top-[2%] w-[85%] z-5">
+            <div className="absolute left-[-10%] top-[2%] w-[85%] z-5">
               <Image
                 src="/figma/shelf.png"
                 alt=""

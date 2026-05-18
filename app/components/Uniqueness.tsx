@@ -28,10 +28,10 @@ const LEFT_FEATURES: Feature[] = [
 ];
 
 const MOBILE_FEATURES: MobileFeature[] = [
-  { text: "להבה יציבה בכל הדלקה", top: "2%", lineWidth: "210%" },
-  { text: "עד 1500 הדלקות", highlight: true, top: "15%", lineWidth: "140%" },
-  { text: "אבן איכותית", top: "26%", lineWidth: "110%" },
-  { text: "עמידה בחום", top: "40%", lineWidth: "95%" },
+  { text: "להבה יציבה בכל הדלקה", top: "2%", lineWidth: "170%" },
+  { text: "עד 1500 הדלקות", highlight: true, top: "8%", lineWidth: "180%" },
+  { text: "אבן איכותית", top: "12%", lineWidth: "130%" },
+  { text: "עמידה בחום", top: "30%", lineWidth: "95%" },
   {
     text: (
       <>
@@ -40,11 +40,11 @@ const MOBILE_FEATURES: MobileFeature[] = [
         באישור מכון התקנים
       </>
     ),
-    top: "53%",
+    top: "42%",
     lineWidth: "95%",
   },
-  { text: "אחיזה נוחה", top: "70%", lineWidth: "95%" },
-  { text: "יושב מושלם בכיס", highlight: true, top: "81%", lineWidth: "120%" },
+  { text: "אחיזה נוחה", top: "55%", lineWidth: "95%" },
+  { text: "יושב מושלם בכיס", top: "72%", lineWidth: "135%" },
 ];
 
 export function Uniqueness() {
@@ -86,9 +86,9 @@ export function Uniqueness() {
             <div className="relative w-full" dir="ltr">
 
               {/* Lighter in normal flow — drives container height, left side */}
-              <div className="w-[130%]" style={{ marginLeft: "clamp(-180px, -32vw, -80px)" }}>
+              <div className="w-[110%]" style={{ marginLeft: "clamp(-180px, -48vw, -80px)" }}>
                 <Image
-                  src="/figma/two-lighters.png"
+                  src="/figma/lt3.png"
                   alt="FLS Lighters"
                   width={460}
                   height={680}
