@@ -5,13 +5,13 @@ const CARDS = [
     title: "לקוח פרטי",
     body: "רוצה לדעת איפה נקודת המכירה הקרובה אליך?",
     cta: "צור קשר",
-    href: "#contact",
+    href: "/contact",
   },
   {
     title: "לקמעונאי",
     body: "רוצה סוכן מכירות שיגיע אליך?",
     cta: "צור קשר",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 

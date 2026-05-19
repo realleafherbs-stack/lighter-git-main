@@ -3,7 +3,7 @@ import { PillButton } from "./Button";
 
 export function CtaBanner() {
   return (
-    <section className="relative bg-fls-yellow overflow-visible py-4 md:py-8">
+    <section className="relative bg-fls-yellow overflow-visible py-0">
       <Image
         aria-hidden
         src="/figma/yellow-bg-square.png"
@@ -19,7 +19,7 @@ export function CtaBanner() {
         {/* ── MOBILE ONLY ── */}
         <div className="md:hidden">
           {/* Title — untouched */}
-          <div className="text-right pt-8 pb-2">
+          <div className="text-right pt-8 pb-0">
             <h2 className="text-black leading-[1.05] text-[clamp(34px,7.6vw,56px)] text-right">
               <span className="block font-normal">המצית שהלקוחות שלך</span>
               <span className="block font-black">ישמחו לחזור לקנות שוב!</span>
@@ -27,9 +27,8 @@ export function CtaBanner() {
           </div>
 
           {/* Shelves + h3/button */}
-          <div className="relative" style={{ paddingBottom: "110%" }}>
-            {/* Shelf 2 — behind, offset right+down */}
-           
+          <div className="relative" style={{ paddingBottom: "100%" }}>
+        
             {/* Shelf 1 — front-left */}
             <div className="absolute left-[-10%] top-[2%] w-[85%] z-5">
               <Image
@@ -50,7 +49,7 @@ export function CtaBanner() {
               <PillButton
                 variant="filled"
                 href="#dual-cta"
-                className="bg-white! text-black! hover:bg-white/90! h-[32px]! min-w-0! w-full! px-5! text-[16px]! justify-center!"
+                className="bg-white! text-black! hover:bg-white/90! h-8! min-w-0! w-full! px-5! text-[16px]! justify-center!"
               >
                 לחץ כאן
               </PillButton>
@@ -110,3 +109,6 @@ export function CtaBanner() {
     </section>
   );
 }
+
+
+

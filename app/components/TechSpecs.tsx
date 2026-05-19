@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 const SPECS: ReadonlyArray<{ label: string; value: string }> = [
-  { label: "מידות", value: "82.4 × 23.4 × 13.4 mm" },
   { label: "חומר גוף", value: "POM תעשייתי" },
   { label: "הצתה", value: "גלגל חצץ" },
   { label: "שסתום", value: "להבה קבועה" },

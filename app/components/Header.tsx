@@ -39,7 +39,7 @@ export function Header() {
 
   return (
     <>
-    <header className={`fixed top-0 inset-x-0 z-30 h-[122px] transition-colors duration-300 ${scrolled ? "bg-fls-black/95 shadow-md" : "bg-transparent"}`}>
+    <header className={`fixed top-0 inset-x-0 z-30 h-[85px] md:h-[122px] transition-colors duration-300 ${scrolled ? "bg-fls-black/95 shadow-md" : "bg-transparent"}`}>
       <div className="mx-auto max-w-[1440px] h-full px-6 md:px-12 flex items-center justify-between gap-4">
         <button
           type="button"
@@ -191,3 +191,7 @@ export function Header() {
     </>
   );
 }
+
+
+
+
