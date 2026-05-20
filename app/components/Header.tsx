@@ -22,6 +22,15 @@ const MOBILE_LEGAL_ROWS = [
   ],
 ];
 
+function scrollToHash(href: string) {
+  const hash = href.includes("#") ? href.split("#")[1] : null;
+  if (!hash) return false;
+  const el = document.getElementById(hash);
+  if (!el) return false;
+  el.scrollIntoView({ behavior: "smooth", block: "center" });
+  return true;
+}
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -119,7 +128,13 @@ export function Header() {
                     <Link
                       href={item.href}
                       className="hover:text-[#fccd23] transition-colors"
-                      onClick={() => setMobileOpen(false)}
+                      onClick={(e) => {
+                        setMobileOpen(false);
+                        if (item.href.includes("#")) {
+                          e.preventDefault();
+                          setTimeout(() => scrollToHash(item.href), 50);
+                        }
+                      }}
                     >
                       {item.label}
                     </Link>
