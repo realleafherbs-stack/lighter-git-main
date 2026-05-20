@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { FloatingButtons } from "../components/FloatingButtons";
@@ -9,18 +9,29 @@ import { FloatingButtons } from "../components/FloatingButtons";
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const thankYouRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (status === "sent" && thankYouRef.current) {
+      thankYouRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [status]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("sending");
     try {
+      console.log("[form] submitting", form);
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+      const data = await res.json();
+      console.log("[form] response", res.status, data);
       setStatus(res.ok ? "sent" : "error");
-    } catch {
+    } catch (err) {
+      console.error("[form] fetch error", err);
       setStatus("error");
     }
   }
@@ -63,7 +74,7 @@ export default function ContactPage() {
               <p className="text-[clamp(13px,2vw,16px)] text-center mb-8 opacity-70">השאירו פרטים ונציג יחזור אליכם בהקדם</p>
 
               {status === "sent" ? (
-                <p className="text-center text-xl font-black text-green-700 py-10">תודה! פנייתך התקבלה, נחזור אליך בהקדם.</p>
+                <p ref={thankYouRef} className="text-center text-xl font-black text-black py-10">תודה! פנייתך התקבלה, נחזור אליך בהקדם.</p>
               ) : (
                 <form className="flex flex-col gap-4 max-w-[520px] mx-auto w-full" dir="rtl" onSubmit={handleSubmit}>
                   <div className="flex flex-col gap-1">
